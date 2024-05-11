@@ -4,7 +4,6 @@
 
 // Include the database configuration file
 include('../model/config.php');
-
 // Check if the user is already logged in
 // if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 //     header("location: dashboard.php");
@@ -53,6 +52,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
   <meta charset="UTF-8">
   <title>Admin Login</title>
+  <link rel="icon" href="../assets/favicon.ico" type="favicon/x-icon" />
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="page">
