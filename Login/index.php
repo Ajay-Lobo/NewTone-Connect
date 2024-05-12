@@ -1,14 +1,14 @@
 <?php
 // Start session
-//session_start();
+session_start();
 
 // Include the database configuration file
 include('../model/config.php');
-// Check if the user is already logged in
-// if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-//     header("location: dashboard.php");
-//     exit;
-// }
+//Check if the user is already logged in
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+    header("location: ../Admin/index.php");
+    exit;
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['uname'];
