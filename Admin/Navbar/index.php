@@ -1,8 +1,7 @@
-
-
 <!DOCTYPE html>
 <!-- Designed by CodingLab | www.youtube.com/codinglabyt -->
 <html lang="en" dir="ltr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,8 +15,10 @@
   <style>
     /* Color Variables */
     :root {
-      --primary-color: #000000; /* Black background */
-      --text-color: #ffffff; /* White text */
+      --primary-color: #000000;
+      /* Black background */
+      --text-color: #ffffff;
+      /* White text */
     }
 
     * {
@@ -33,7 +34,8 @@
       left: 0;
       width: 100%;
       height: 70px;
-      background-color: var(--primary-color); /* Set nav background color to black */
+      background-color: var(--primary-color);
+      /* Set nav background color to black */
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
       z-index: 99;
     }
@@ -55,6 +57,7 @@
       text-decoration: none;
       font-weight: 600;
     }
+
     .logo img {
       width: 250px;
     }
@@ -215,11 +218,13 @@
     }
 
     .sidebar-opened {
-      background-color: #000000; /* Black background */
+      background-color: #000000;
+      /* Black background */
     }
 
     .sidebar-opened a {
-      color: #ffffff; /* White text */
+      color: #ffffff;
+      /* White text */
     }
 
     .sidebar-opened .logo {
@@ -282,6 +287,7 @@
         font-size: 25px;
         color: var(--text-color);
       }
+
       nav .navbar .links {
         display: block;
         margin-top: 20px;
@@ -360,105 +366,107 @@
     }
   </style>
 </head>
+
 <body>
-<nav>
-  <div class="navbar">
-    <i class='bx bx-menu'></i>
-    <div class="logo">
-      <a href="#">
-        <img src="../assets/logo-1.png" alt="Logo">
-      </a>
-    </div>
-    <div class="nav-links">
-      <div class="sidebar-logo">
-        <i class='bx bx-x' ></i>
+  <nav>
+    <div class="navbar">
+      <i class='bx bx-menu'></i>
+      <div class="logo">
+        <a href="#">
+          <img src="https://res.cloudinary.com/dhkh3kguy/image/upload/v1715707428/logo-1_cdfqse.png" alt="Logo">
+        </a>
       </div>
-      <ul class="links">
-        <?php if(isset($_SESSION['username']) && $_SESSION['username'] === 'admin'): ?>
-          <!-- Navbar items for admin -->
-          <li><a href="#">HOME</a></li>
-          <li>
-            <a href="#">EVENTS</a>
-            <i class='bx bxs-chevron-down htmlcss-arrow arrow'></i>
-            <ul class="htmlCss-sub-menu sub-menu">
-              <li><a href="#">UPCOMING EVENTS</a></li>
-              <li><a href="#">COMPLETED EVENTS</a></li>
-            </ul>
-          </li>
-          <li><a href="#">GALLERY</a></li>
-          <li><a href="#">BROCHURE</a></li>
-          <li><a href="#">ADMISSION</a></li>
-        <?php else: ?>
-          <!-- Navbar items for non-admin users -->
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Pricing</a></li>
-          <li><a href="#">Contact</a></li>
-        <?php endif; ?>
-        <?php if(isset($_SESSION['username'])): ?>
-          <!-- Common Navbar items for logged in users -->
-          <li class="user-profile">
-            <a href="#">
-              <?php echo $_SESSION['username']; ?>
-            </a>
-            <i class='bx bxs-user-circle arrow'></i>
-            <ul class="htmlCss-sub-menu sub-menu">
-              <li><a href="../Logout/index.php">LOGOUT</a></li>
-              <li><a href="#">PROFILE</a></li>
-            </ul>
-          </li>
-        <?php else: ?>
-          <!-- Navbar items for non-logged in users -->
-          <li><a href="#">User</a></li>
-        <?php endif; ?>
-      </ul>
+      <div class="nav-links">
+        <div class="sidebar-logo">
+          <i class='bx bx-x'></i>
+        </div>
+        <ul class="links">
+          <?php if (isset($_SESSION['username']) && $_SESSION['username'] === 'admin') : ?>
+            <!-- Navbar items for admin -->
+            <li><a href="../Admin/index.php">HOME</a></li>
+            <li>
+              <a href="#">EVENTS</a>
+              <i class='bx bxs-chevron-down htmlcss-arrow arrow'></i>
+              <ul class="htmlCss-sub-menu sub-menu">
+                <li><a href="#">UPCOMING EVENTS</a></li>
+                <li><a href="#">COMPLETED EVENTS</a></li>
+              </ul>
+            </li>
+            <li><a href="../Gallery/index.php">GALLERY</a></li>
+            <li><a href="#">BROCHURE</a></li>
+            <li><a href="#">ADMISSION</a></li>
+          <?php else : ?>
+            <!-- Navbar items for non-admin users -->
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Contact</a></li>
+          <?php endif; ?>
+          <?php if (isset($_SESSION['username'])) : ?>
+            <!-- Common Navbar items for logged in users -->
+            <li class="user-profile">
+              <a href="#">
+                <?php echo $_SESSION['username']; ?>
+              </a>
+              <i class='bx bxs-user-circle arrow'></i>
+              <ul class="htmlCss-sub-menu sub-menu">
+                <li><a href="../Logout/index.php">LOGOUT</a></li>
+                <li><a href="#">PROFILE</a></li>
+              </ul>
+            </li>
+          <?php else : ?>
+            <!-- Navbar items for non-logged in users -->
+            <li><a href="#">User</a></li>
+          <?php endif; ?>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
 
 
-<script>
-  let navLinks = document.querySelector(".nav-links");
-  let menuOpenBtn = document.querySelector(".navbar .bx-menu");
-  let menuCloseBtn = document.querySelector(".nav-links .bx-x");
+  <script>
+    let navLinks = document.querySelector(".nav-links");
+    let menuOpenBtn = document.querySelector(".navbar .bx-menu");
+    let menuCloseBtn = document.querySelector(".nav-links .bx-x");
 
-  menuOpenBtn.onclick = function() {
-    navLinks.style.left = "0";
-    // Hide the menu open button
-    menuOpenBtn.style.display = "none";
-    // Show the menu close button
-    menuCloseBtn.style.display = "block";
-    // Add class to change background color and text color
-    navLinks.classList.add("sidebar-opened");
-  }
+    menuOpenBtn.onclick = function() {
+      navLinks.style.left = "0";
+      // Hide the menu open button
+      menuOpenBtn.style.display = "none";
+      // Show the menu close button
+      menuCloseBtn.style.display = "block";
+      // Add class to change background color and text color
+      navLinks.classList.add("sidebar-opened");
+    }
 
-  menuCloseBtn.onclick = function() {
-    navLinks.style.left = "-100%";
-    // Show the menu open button
-    menuOpenBtn.style.display = "block";
-    // Hide the menu close button
-    menuCloseBtn.style.display = "none";
-    // Remove class to revert background color and text color
-    navLinks.classList.remove("sidebar-opened");
-  }
+    menuCloseBtn.onclick = function() {
+      navLinks.style.left = "-100%";
+      // Show the menu open button
+      menuOpenBtn.style.display = "block";
+      // Hide the menu close button
+      menuCloseBtn.style.display = "none";
+      // Remove class to revert background color and text color
+      navLinks.classList.remove("sidebar-opened");
+    }
 
-  // sidebar submenu open close js code
-  let htmlcssArrow = document.querySelector(".htmlcss-arrow");
-  htmlcssArrow.onclick = function() {
-    navLinks.classList.toggle("show1");
-  }
+    // sidebar submenu open close js code
+    let htmlcssArrow = document.querySelector(".htmlcss-arrow");
+    htmlcssArrow.onclick = function() {
+      navLinks.classList.toggle("show1");
+    }
 
-  let moreArrow = document.querySelector(".more-arrow");
-  moreArrow.onclick = function() {
-    navLinks.classList.toggle("show2");
-  }
+    let moreArrow = document.querySelector(".more-arrow");
+    moreArrow.onclick = function() {
+      navLinks.classList.toggle("show2");
+    }
 
-  let jsArrow = document.querySelector(".js-arrow");
-  jsArrow.onclick = function() {
-    navLinks.classList.toggle("show3");
-  }
-</script>
+    let jsArrow = document.querySelector(".js-arrow");
+    jsArrow.onclick = function() {
+      navLinks.classList.toggle("show3");
+    }
+  </script>
 </body>
+
 </html>
