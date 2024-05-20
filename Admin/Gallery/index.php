@@ -26,39 +26,39 @@
     $imageName = $_POST['image_name'];
     // Check if file was uploaded without errors
     if (isset($_FILES["image"]) && $_FILES["image"]["error"] == 0) {
-        $allowed_types = array('jpg', 'jpeg', 'png', 'gif');
-        $file_extension = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
+      $allowed_types = array('jpg', 'jpeg', 'png', 'gif');
+      $file_extension = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
 
-        // Check file extension
-        if (in_array($file_extension, $allowed_types)) {
-            // Read image data into a variable
-            $img_data = file_get_contents($_FILES['image']['tmp_name']);
+      // Check file extension
+      if (in_array($file_extension, $allowed_types)) {
+        // Read image data into a variable
+        $img_data = file_get_contents($_FILES['image']['tmp_name']);
 
-            // Prepare SQL statement to insert image into database
-            $stmt = $conn->prepare("INSERT INTO gallery (photo,photoname) VALUES (?,?)");
-            $stmt->bind_param("bb", $img_data,$imageName);
+        // Prepare SQL statement to insert image into database
+        $stmt = $conn->prepare("INSERT INTO gallery (photo,photoname) VALUES (?,?)");
+        $stmt->bind_param("bb", $img_data, $imageName);
 
-            // Execute SQL statement
-            if ($stmt->execute()) {
-                $upload_message = "Image uploaded successfully.";
-            } else {
-                $upload_message = "Error uploading image: " . $conn->error;
-            }
-
-            // Close statement
-            $stmt->close();
+        // Execute SQL statement
+        if ($stmt->execute()) {
+          $upload_message = "Image uploaded successfully.";
         } else {
-            $upload_message = "Invalid file type. Allowed types are: jpg, jpeg, png, gif";
+          $upload_message = "Error uploading image: " . $conn->error;
         }
+
+        // Close statement
+        $stmt->close();
+      } else {
+        $upload_message = "Invalid file type. Allowed types are: jpg, jpeg, png, gif";
+      }
     } else {
-        $upload_message = "Error uploading image: " . $_FILES["image"]["error"];
+      $upload_message = "Error uploading image: " . $_FILES["image"]["error"];
     }
-}
+  }
 
 
   // Fetch images from database
-$sql = "SELECT id, photo,photoname FROM gallery";
-$result = $conn->query($sql);
+  $sql = "SELECT id, photo,photoname FROM gallery";
+  $result = $conn->query($sql);
 
   // Close connection
   $conn->close();
@@ -73,36 +73,36 @@ $result = $conn->query($sql);
 
 
   <div class="container">
-    <?php if(isset($upload_message)) { ?>
-        <div id="uploadMessage" class="alert alert-success" role="alert"><?php echo $upload_message; ?></div>
+    <?php if (isset($upload_message)) { ?>
+      <div id="uploadMessage" class="alert alert-success" role="alert"><?php echo $upload_message; ?></div>
     <?php } ?>
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content" style="background-color: #31343b; border: none;">
-                <div class="modal-header" style="border-bottom: none; display: flex; justify-content: center;"> <!-- Centering the text -->
-                    <h1 class="modal-title fs-5 text-danger" id="exampleModalLabel">Image Upload</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
-                        <div class="mb-3">
-                            <input type="text" class="form-control" id="image-name" name="image_name" placeholder="Name of the Image">
-                        </div>
-                        <div class="mb-3">
-                            <label for="image-file" class="col-form-label">Insert Image</label>
-                            <input type="file" class="form-control" id="image-file" name="image" required>
-                        </div>
-                        <div class="modal-footer justify-content-center" style="border-top: none;">
-                            <input type="submit" class="btn btn-success" value="Upload Image">
-                            <input type="reset" class="btn btn-secondary"  value="Clear">
-                        </div>
-                    </form>
-                </div>
-            </div>
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="background-color: #31343b; border: none;">
+          <div class="modal-header" style="border-bottom: none; display: flex; justify-content: center;"> <!-- Centering the text -->
+            <h1 class="modal-title fs-5 text-danger" id="exampleModalLabel">Image Upload</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
+              <div class="mb-3">
+                <input type="text" class="form-control" id="image-name" name="image_name" placeholder="Name of the Image">
+              </div>
+              <div class="mb-3">
+                <label for="image-file" class="col-form-label">Insert Image</label>
+                <input type="file" class="form-control" id="image-file" name="image" required>
+              </div>
+              <div class="modal-footer justify-content-center" style="border-top: none;">
+                <input type="submit" class="btn btn-success" value="Upload Image">
+                <input type="reset" class="btn btn-secondary" value="Clear">
+              </div>
+            </form>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-   
+  </div>
+
 
 
 
@@ -141,18 +141,17 @@ $result = $conn->query($sql);
   </table>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script>
-   setTimeout(function() {
-        var uploadMessage = document.getElementById('uploadMessage');
-        if (uploadMessage) {
-            uploadMessage.style.display = 'none';
-        }
+  <script>
+    setTimeout(function() {
+      var uploadMessage = document.getElementById('uploadMessage');
+      if (uploadMessage) {
+        uploadMessage.style.display = 'none';
+      }
     }, 3000);
     window.onload = function() {
-        document.getElementById('image-file').value = '';
+      document.getElementById('image-file').value = '';
     };
-
-</script>
+  </script>
 </body>
 
 </html>
