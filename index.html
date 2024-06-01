@@ -1,306 +1,478 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-    <link rel="icon" href="assets/favicon.ico" type="favicon/x-icon" />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"
-      rel="stylesheet"
-    />
+<html lang="zxx">
 
-    <link rel="stylesheet" href="style.css" />
-    <title>NewTone</title>
-  </head>
-  <body>
-    <nav>
-      <div class="nav__logo">
-        <a href="#"><img src="assets/logo-1.png" alt="logo" /></a>
-      </div>
-      <ul class="nav__links">
-        <li class="link"><a href="#">Home</a></li>
-        <li class="link"><a href="#">About</a></li>
-        <li class="link"><a href="#">Services</a></li>
-        <li class="link"><a href="#">Pricing</a></li>
-        <li class="link"><a href="#">Contact</a></li>
-      </ul>
-      <button class="btn">Join Now</button>
-    </nav>
-
-    <header class="section__container header__container">
-      <div class="header__content">
-        <span class="bg__blur"></span>
-        <span class="bg__blur header__blur"></span>
-        <h4>BEST FITNESS IN THE TOWN</h4>
-        <h1><span>MAKE</span> YOUR BODY SHAPE</h1>
-        <p>
-          Unleash your potential and embark on a journey towards a stronger,
-          fitter, and more confident you. Sign up for 'Make Your Body Shape' now
-          and witness the incredible transformation your body is capable of!
-        </p>
-        <button class="btn">Get Started</button>
-      </div>
-      <!-- <div class="header__image" id="headerImage"> -->
-        <div id="headerImage">
-        <img src="assets/header.png" alt="header" />
-      </div>
-    </header>
-
-    <section class="section__container explore__container">
-      <div class="explore__header">
-        <h2 class="section__header">EXPLORE OUR PROGRAM</h2>
-        <div class="explore__nav">
-          <span><i class="ri-arrow-left-line"></i></span>
-          <span><i class="ri-arrow-right-line"></i></span>
+<!-- Mirrored from duruthemes.com/demo/html/nostop/dark-parallax-image/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 26 May 2024 07:48:36 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Fitness HQ</title>
+    <link rel="shortcut icon" href="https://res.cloudinary.com/dhkh3kguy/image/upload/v1716719838/favicon_mcxew6.ico" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald&amp;family=Barlow:wght@300;400;500;600;700&amp;display=swap">
+    <link rel="stylesheet" href="css/plugins.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader-bg"></div>
+    <div id="preloader">
+        <div id="preloader-status">
+            <div class="preloader-position loader"> <span></span> </div>
         </div>
-      </div>
-      <div class="explore__grid">
-        <div class="explore__card">
-          <span><i class="ri-boxing-fill"></i></span>
-          <h4>Strength</h4>
-          <p>
-            Embrace the essence of strength as we delve into its various
-            dimensions physical, mental, and emotional.
-          </p>
-          <a href="#">Join Now <i class="ri-arrow-right-line"></i></a>
-        </div>
-        <div class="explore__card">
-          <span><i class="ri-heart-pulse-fill"></i></span>
-          <h4>Physical Fitness</h4>
-          <p>
-            It encompasses a range of activities that improve health, strength,
-            flexibility, and overall well-being.
-          </p>
-          <a href="#">Join Now <i class="ri-arrow-right-line"></i></a>
-        </div>
-        <div class="explore__card">
-          <span><i class="ri-run-line"></i></span>
-          <h4>Fat Lose</h4>
-          <p>
-            Through a combination of workout routines and expert guidance, we'll
-            empower you to reach your goals.
-          </p>
-          <a href="#">Join Now <i class="ri-arrow-right-line"></i></a>
-        </div>
-        <div class="explore__card">
-          <span><i class="ri-shopping-basket-fill"></i></span>
-          <h4>Weight Gain</h4>
-          <p>
-            Designed for individuals, our program offers an effective approach
-            to gaining weight in a sustainable manner.
-          </p>
-          <a href="#">Join Now <i class="ri-arrow-right-line"></i></a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section__container class__container">
-      <div class="class__image">
-        <span class="bg__blur"></span>
-        <img src="assets/class-1.jpg" alt="class" class="class__img-1" />
-        <img src="assets/class-2.jpg" alt="class" class="class__img-2" />
-      </div>
-      <div class="class__content">
-        <h2 class="section__header">THE CLASS YOU WILL GET HERE</h2>
-        <p>
-          Led by our team of expert and motivational instructors, "The Class You
-          Will Get Here" is a high-energy, results-driven session that combines
-          a perfect blend of cardio, strength training, and functional
-          exercises. Each class is carefully curated to keep you engaged and
-          challenged, ensuring you never hit a plateau in your fitness
-          endeavors.
-        </p>
-        <button class="btn">Book A Class</button>
-      </div>
-    </section>
-
-    <section class="section__container join__container">
-      <h2 class="section__header">WHY JOIN US ?</h2>
-      <p class="section__subheader">
-        Our diverse membership base creates a friendly and supportive
-        atmosphere, where you can make friends and stay motivated.
-      </p>
-      <div class="join__image">
-        <img src="assets/join.jpg" alt="Join" />
-        <div class="join__grid">
-          <div class="join__card">
-            <span><i class="ri-user-star-fill"></i></span>
-            <div class="join__card__content">
-              <h4>Personal Trainer</h4>
-              <p>Unlock your potential with our expert Personal Trainers.</p>
-            </div>
-          </div>
-          <div class="join__card">
-            <span><i class="ri-vidicon-fill"></i></span>
-            <div class="join__card__content">
-              <h4>Practice Sessions</h4>
-              <p>Elevate your fitness with practice sessions.</p>
-            </div>
-          </div>
-          <div class="join__card">
-            <span><i class="ri-building-line"></i></span>
-            <div class="join__card__content">
-              <h4>Good Management</h4>
-              <p>Supportive management, for your fitness success.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section__container price__container">
-      <h2 class="section__header">OUR PRICING PLAN</h2>
-      <p class="section__subheader">
-        Our pricing plan comes with various membership tiers, each tailored to
-        cater to different preferences and fitness aspirations.
-      </p>
-      <div class="price__grid">
-        <div class="price__card">
-          <div class="price__card__content">
-            <h4>Basic Plan</h4>
-            <h3>$16</h3>
-            <p>
-              <i class="ri-checkbox-circle-line"></i>
-              Smart workout plan
-            </p>
-            <p>
-              <i class="ri-checkbox-circle-line"></i>
-              At home workouts
-            </p>
-          </div>
-          <button class="btn price__btn">Join Now</button>
-        </div>
-        <div class="price__card">
-          <div class="price__card__content">
-            <h4>Weekly Plan</h4>
-            <h3>$25</h3>
-            <p>
-              <i class="ri-checkbox-circle-line"></i>
-              PRO Gyms
-            </p>
-            <p>
-              <i class="ri-checkbox-circle-line"></i>
-              Smart workout plan
-            </p>
-            <p>
-              <i class="ri-checkbox-circle-line"></i>
-              At home workouts
-            </p>
-          </div>
-          <button class="btn price__btn">Join Now</button>
-        </div>
-        <div class="price__card">
-          <div class="price__card__content">
-            <h4>Monthly Plan</h4>
-            <h3>$45</h3>
-            <p>
-              <i class="ri-checkbox-circle-line"></i>
-              ELITE Gyms & Classes
-            </p>
-            <p>
-              <i class="ri-checkbox-circle-line"></i>
-              PRO Gyms
-            </p>
-            <p>
-              <i class="ri-checkbox-circle-line"></i>
-              Smart workout plan
-            </p>
-            <p>
-              <i class="ri-checkbox-circle-line"></i>
-              At home workouts
-            </p>
-            <p>
-              <i class="ri-checkbox-circle-line"></i>
-              Personal Training
-            </p>
-          </div>
-          <button class="btn price__btn">Join Now</button>
-        </div>
-      </div>
-    </section>
-
-    <section class="review">
-      <div class="section__container review__container">
-        <span><i class="ri-double-quotes-r"></i></span>
-        <div class="review__content">
-          <h4>MEMBER REVIEW</h4>
-          <p>
-            What truly sets this gym apart is their expert team of trainers. The
-            trainers are knowledgeable, approachable, and genuinely invested in
-            helping members achieve their fitness goals. They take the time to
-            understand individual needs and create personalized workout plans,
-            ensuring maximum results and safety.
-          </p>
-          <div class="review__rating">
-            <span><i class="ri-star-fill"></i></span>
-            <span><i class="ri-star-fill"></i></span>
-            <span><i class="ri-star-fill"></i></span>
-            <span><i class="ri-star-fill"></i></span>
-            <span><i class="ri-star-half-fill"></i></span>
-          </div>
-          <div class="review__footer">
-            <div class="review__member">
-              <img src="assets/member.jpg" alt="member" />
-              <div class="review__member__details">
-                <h4>Jane Cooper</h4>
-                <p>Software Developer</p>
-              </div>
-            </div>
-            <div class="review__nav">
-              <span><i class="ri-arrow-left-line"></i></span>
-              <span><i class="ri-arrow-right-line"></i></span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="section__container footer__container">
-      <span class="bg__blur"></span>
-      <span class="bg__blur footer__blur"></span>
-      <div class="footer__col">
-        <div class="footer__logo">
-          <img src="assets/logo-1.png" alt="logo" />
-        </div>
-        <p>
-          Take the first step towards a healthier, stronger you with our
-          unbeatable pricing plans. Let's sweat, achieve, and conquer together!
-        </p>
-        <div class="footer__socials">
-          <a href="#"><i class="ri-facebook-fill"></i></a>
-          <a href="#"><i class="ri-instagram-line"></i></a>
-          <a href="#"><i class="ri-twitter-fill"></i></a>
-        </div>
-      </div>
-      <div class="footer__col">
-        <h4>Company</h4>
-        <a href="#">Business</a>
-        <a href="#">Franchise</a>
-        <a href="#">Partnership</a>
-        <a href="#">Network</a>
-      </div>
-      <div class="footer__col">
-        <h4>About Us</h4>
-        <a href="#">Blogs</a>
-        <a href="#">Security</a>
-        <a href="#">Careers</a>
-      </div>
-      <div class="footer__col">
-        <h4>Contact</h4>
-        <a href="#">Contact Us</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms & Conditions</a>
-        <a href="#">BMI Calculator</a>
-      </div>
-    </footer>
-    <div class="footer__bar">
-      Copyright © 2023 Web Design Mastery. All rights reserved.
     </div>
-    <script src="index.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-  </body>
+    <!-- Mouse cursor -->
+    <div class="mouse-cursor cursor-outer"></div>
+    <div class="mouse-cursor cursor-inner"></div>
+    <!-- Progress scroll totop -->
+    <div class="progress-wrap cursor-pointer">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <!-- Logo -->
+            <div class="logo-wrapper">
+                <a class="logo" href="index.html"> <img src="https://res.cloudinary.com/dhkh3kguy/image/upload/v1716719775/logo-gym_a7qmbd.png" class="logo-img" alt=""> </a>
+                <!-- <a class="logo" href="index.html"> <h2>NO<span>STOP</span></h2> </a> -->
+            </div>
+            <!-- Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"><i class="ti-menu"></i></span> </button>
+            <!-- Menu -->
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"> <a class="nav-link active " href="#" >Home </a>  </li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Events &nbsp;<i class="ti-angle-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="blog.html" class="dropdown-item"><span>Ucoming Events</span></a></li>
+                            <li><a href="blog.html" class="dropdown-item"><span>Completed Events</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Gallery &nbsp;<i class="ti-angle-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="gallery-image.html" class="dropdown-item"><span>Image Gallery</span></a></li>
+                            <li><a href="gallery-video.html" class="dropdown-item"><span>Video Gallery</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">Equipments</a></li>
+
+                    <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+                   
+                    
+                   
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Parallax Image -->
+    <div class="parallax-header valign bg-img bg-fixed" data-overlay-dark="4" data-background="img/slider/12.jpg">
+        <div class="container">
+            <div class="row content-justify-center">
+                <div class="col-md-12 text-center">
+                    <div class="v-middle">
+                        <h6>Welcome to Fitness HQ</h6>
+                        <h1>Be A Happier, Healthier,<br><span>Stronger You</span></h1>
+                        <p>Achieve your health & fitness goals at any stage.</p>
+                        <a href="pricing.html" class="btn-1 button-1">JOIN NOW</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About -->
+    <section class="about section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-30">
+                    <div class="section-title2">About Us</div>
+                    <div class="section-title">The story behind <span>our gym</span></div>
+                    <p class="mb-30">Quisque tortor risus, pharetra ut venenatis ac, rutrum eget ante fusce in convallis nibh felis rana hendrerit diam rhoncus eget sonec dictum acus element sifend nisa efficitur venenatis.</p>
+                    <ul class="list-unstyled list">
+                        <li>
+                            <div class="list-icon"> <span class="ti-check"></span> </div>
+                            <div class="list-text">
+                                <p>Over 15 years of experience</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list-icon"> <span class="ti-check"></span> </div>
+                            <div class="list-text">
+                                <p>Certified Trainers</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list-icon"> <span class="ti-check"></span> </div>
+                            <div class="list-text">
+                                <p>Exceptional work quality</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <div class="about-img">
+                        <div class="img"> <img src="img/about.jpg" class="img-fluid" alt=""> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Video -->
+    <section class="video-wrapper video section-padding bg-img bg-fixed" data-overlay-dark="4" data-background="img/slider/10.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center mb-30">
+                    <div class="section-title3">Be Inspired</div>
+                    <div class="section-title">Explore Life <span>Gym</span></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="text-center col-md-12">
+                    <a class="vid" href="https://youtu.be/pJsWKy9y1Cg">
+                        <div class="vid-butn"> <span class="icon"> <i class="ti-control-play"></i> </span> </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Classes -->
+    <section class="classes section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center mb-30">
+                    <div class="section-title3">Our Services</div>
+                    <div class="section-title"><span>Special</span>ization</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="owl-carousel owl-theme">
+                        <div class="item">
+                            <div class="position-re o-hidden"> <img src="img/classes/1.jpg" alt=""> </div>
+                            <div class="con">
+                                <h5><a href="classes-single.html">Personal Training</a></h5>
+                                <div class="line"></div>
+                                <div class="icon">
+                                    <a href="classes-single.html"><i class="ti-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="position-re o-hidden"> <img src="img/classes/2.jpg" alt=""> </div>
+                            <div class="con">
+                                <h5><a href="classes-single.html">Fitness Class</a></h5>
+                                <div class="line"></div>
+                                <div class="icon">
+                                    <a href="classes-single.html"><i class="ti-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="position-re o-hidden"> <img src="img/classes/3.jpg" alt=""> </div>
+                            <div class="con">
+                                <h5><a href="classes-single.html">Nutrition Plan</a></h5>
+                                <div class="line"></div>
+                                <div class="icon">
+                                    <a href="classes-single.html"><i class="ti-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="position-re o-hidden"> <img src="img/classes/4.jpg" alt=""> </div>
+                            <div class="con">
+                                <h5><a href="classes-single.html">Online Training</a></h5>
+                                <div class="line"></div>
+                                <div class="icon">
+                                    <a href="classes-single.html"><i class="ti-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="position-re o-hidden"> <img src="img/classes/8.jpg" alt=""> </div>
+                            <div class="con">
+                                <h5><a href="classes-single.html">Cardio Fitness</a></h5>
+                                <div class="line"></div>
+                                <div class="icon">
+                                    <a href="classes-single.html"><i class="ti-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="position-re o-hidden"> <img src="img/classes/9.jpg" alt=""> </div>
+                            <div class="con">
+                                <h5><a href="classes-single.html">Crossfit Training</a></h5>
+                                <div class="line"></div>
+                                <div class="icon">
+                                    <a href="classes-single.html"><i class="ti-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog -->
+    <section class="blog section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center mb-30">
+                    <div class="section-title3">Exclusives</div>
+                    <div class="section-title"><span>Ucoming</span>Events</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="owl-carousel owl-theme">
+                        <div class="item">
+                            <div class="position-re o-hidden"> <img src="img/slider/13.jpg" alt="">
+                                <div class="date">
+                                    <a href="post.html"> <span>Jun</span> <i>05</i> </a>
+                                </div>
+                            </div>
+                            <div class="con"> <span class="category">
+                                    <a href="blog.html">Weight Lifting</a>
+                                </span>
+                                <h5><a href="post.html">What Is A Barbell Complex?</a></h5>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="position-re o-hidden"> <img src="img/slider/9.jpg" alt="">
+                                <div class="date">
+                                    <a href="post.html"> <span>Jun</span> <i>10</i> </a>
+                                </div>
+                            </div>
+                            <div class="con"> <span class="category">
+                                    <a href="blog.html">Fitness</a>
+                                </span>
+                                <h5><a href="post.html">Upper Body Plyometric Exercises</a></h5>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="position-re o-hidden"> <img src="img/slider/3.jpg" alt="">
+                                <div class="date">
+                                    <a href="post.html"> <span>Jun</span> <i>15</i> </a>
+                                </div>
+                            </div>
+                            <div class="con"> <span class="category">
+                                    <a href="blog.html">Training</a>
+                                </span>
+                                <h5><a href="post.html">What Is Tempo Training?</a></h5>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="position-re o-hidden"> <img src="img/slider/14.jpg" alt="">
+                                <div class="date">
+                                    <a href="post.html"> <span>Jun</span> <i>25</i> </a>
+                                </div>
+                            </div>
+                            <div class="con"> <span class="category">
+                                    <a href="blog.html">Fitness</a>
+                                </span>
+                                <h5><a href="post.html">Dumbbell Chest Press Variations</a></h5>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="position-re o-hidden"> <img src="img/slider/2.jpg" alt="">
+                                <div class="date">
+                                    <a href="post.html"> <span>Jun</span> <i>25</i> </a>
+                                </div>
+                            </div>
+                            <div class="con"> <span class="category">
+                                    <a href="blog.html">Trainers</a>
+                                </span>
+                                <h5><a href="post.html">The Best Online Tools For Trainers</a></h5>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="position-re o-hidden"> <img src="img/slider/4.jpg" alt="">
+                                <div class="date">
+                                    <a href="post.html"> <span>Jun</span> <i>30</i> </a>
+                                </div>
+                            </div>
+                            <div class="con"> <span class="category">
+                                    <a href="blog.html">Fitness</a>
+                                </span>
+                                <h5><a href="post.html">Creative Gym Equipment Swaps</a></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testiominals -->
+    <section class="testimonials">
+        <div class="background bg-img bg-fixed section-padding pb-0" data-background="img/slider/4.jpg" data-overlay-dark="4">
+            <div class="container">
+                <div class="row">
+                    <!-- Free Trial Training -->
+                    <div class="col-md-6 mb-30">
+                        <div class="ready v-middle">
+                            <h4>Wanna Join US</h4>
+                            <p>Make an appointment today for your free and non-binding trial session with or without one of our personal trainers.</p> 
+                            <a href="contact.html" class="btn-1 button-1">Contact Us</a>
+                        </div>
+                    </div>
+                    <!-- Testiominals -->
+                    <div class="col-md-5 offset-md-1">
+                        <div class="testimonials-box">
+                            <h4>What <span>Clients</span> Say</h4>
+                            <div class="owl-carousel owl-theme">
+                                <div class="item"> <span class="quote"><img src="img/quot.png" alt=""></span>
+                                    <p>Lorem luctus nulla a scelerisque ultricies miss elonas nisa drana aliquamen the placerat quis risus onthase vitae tesus in the duzse vitaeni asthe nesue the duru in fermen.</p>
+                                    <div class="info">
+                                        <div class="author-img"> <img src="img/team/1.jpg" alt=""> </div>
+                                        <div class="cont">
+                                            <h6>Jason Brown</h6> <span>Customer Review</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item"> <span class="quote">
+                                        <img src="img/quot.png" alt="">
+                                    </span>
+                                    <p>Lorem luctus nulla a scelerisque ultricies miss elonas nisa drana aliquamen the placerat quis risus onthase vitae tesus in the duzse vitaeni asthe nesue the duru in fermen.</p>
+                                    <div class="info">
+                                        <div class="author-img"> <img src="img/team/2.jpg" alt=""> </div>
+                                        <div class="cont">
+                                            <h6>Emily White</h6> <span>Customer Review</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Clients -->
+    <section class="clients">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="owl-carousel owl-theme">
+                        <div class="clients-logo">
+                            <a href="#0"><img src="img/clients/lotto.png" alt=""></a>
+                        </div>
+                        <div class="clients-logo">
+                            <a href="#0"><img src="img/clients/life-fitness.png" alt=""></a>
+                        </div>
+                        <div class="clients-logo">
+                            <a href="#0"><img src="img/clients/brunswick.png" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Insta -->
+    <div class="insta">
+        <div class="container-fluid flex">
+            <div class="img">
+                <a href="#0"> <img src="img/slider/1.jpg" alt=""> </a> <i class="ti-instagram"></i>
+            </div>
+            <div class="img">
+                <a href="#0"> <img src="img/slider/2.jpg" alt=""> </a> <i class="ti-instagram"></i>
+            </div>
+            <div class="img">
+                <a href="#0"> <img src="img/slider/3.jpg" alt=""> </a> <i class="ti-instagram"></i>
+            </div>
+            <div class="img">
+                <a href="#0"> <img src="img/slider/4.jpg" alt=""> </a> <i class="ti-instagram"></i>
+            </div>
+            <div class="img">
+                <a href="#0"> <img src="img/slider/5.jpg" alt=""> </a> <i class="ti-instagram"></i>
+            </div>
+            <div class="follow">
+                <a href="gallery-image.html" class="text-bg"> <span><i class="ti-gallery"></i>&nbsp; Gallery</span></a>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="wrap">
+                            <h4>Contact</h4>
+                            <div class="wrap-text">0665 Broadway NY, New York 10001
+                                <br>United States of America
+                            </div>
+                            <div class="wrap-phone">Phone: +1 203-123-0606</div>
+                            <div class="wrap-mail">info@nostop.com</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 offset-md-1">
+                        <div class="opening-hours">
+                            <h4>Opening Hours</h4>
+                            <ul>
+                                <li>
+                                    <div class="tit">Monday - Friday</div>
+                                    <div class="dots"></div> <span>06:00 - 22:00</span>
+                                </li>
+                                <li>
+                                    <div class="tit">Saturday</div>
+                                    <div class="dots"></div> <span>08:00 - 17:00</span>
+                                </li>
+                                <li>
+                                    <div class="tit">Sunday</div>
+                                    <div class="dots"></div> <span>Closed</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4 offset-md-1">
+                        <div class="wrap">
+                            <h4>Subscribe</h4>
+                            <div class="row subscribe">
+                                <div class="col-md-12">
+                                    <p>Subscribe to take advantage of our campaigns and gift certificates.</p>
+                                    <form>
+                                        <input type="text" name="search" placeholder="Your email" required>
+                                        <button>Subscribe</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="copyright">
+                            <p>2024 © All rights reserved. Designed by <a href="#" target="_blank">Nishanth</a></p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-end">
+                        <div class="footer-social"> <a href="#"><i class="ti-instagram"></i></a> <a href="#"><i class="ti-twitter"></i></a> <a href="#"><i class="ti-youtube"></i></a> <a href="#"><i class="ti-facebook"></i></a> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- jQuery -->
+    <script src="js/jquery-3.6.3.min.js"></script>
+    <script src="js/jquery-migrate-3.0.0.min.js"></script>
+    <script src="js/modernizr-2.6.2.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/jquery.isotope.v3.0.2.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scrollIt.min.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/jquery.magnific-popup.js"></script>
+    <script src="js/YouTubePopUp.js"></script>
+    <script src="js/custom.js"></script>
+</body>
+
+<!-- Mirrored from duruthemes.com/demo/html/nostop/dark-parallax-image/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 26 May 2024 07:49:34 GMT -->
 </html>
