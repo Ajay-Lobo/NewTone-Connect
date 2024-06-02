@@ -64,7 +64,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                             <li><a href="gallery-video.html" class="dropdown-item"><span>Video Gallery</span></a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">Equipments</a></li>
+                    <li class="nav-item"><a class="nav-link" href="equipments.php">Equipments</a></li>
 
                     <li class="nav-item"><a class="nav-link" href="pricing.php">Pricing</a></li>
 
