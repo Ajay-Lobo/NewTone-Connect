@@ -1,3 +1,12 @@
+
+<?php
+
+include './model/config.php';
+
+$result = $conn->query("SELECT * FROM gallery");
+
+?>
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -82,7 +91,7 @@
     <!--  Gallery Image -->
     <section class="section-padding">
         <div class="container">
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-md-12 text-center">
                     <ul class="gallery-filter">
                         <li class="active" data-filter="*">All</li>
@@ -91,80 +100,25 @@
                         <li data-filter=".crossfit">Crossfit</li>
                     </ul>
                 </div>
-            </div>
+            </div> -->
             <div class="row gallery-items">
+            <?php if ($result->num_rows > 0) : ?>
+                <?php while ($row = $result->fetch_assoc()) : ?>
                 <div class="col-md-4 gallery-masonry-wrapper single-item cardio">
-                    <a href="img/slider/1.jpg" title="" class="gallery-masonry-item-img-link img-zoom">
+                    <a href="./Admin/Home/<?= $row['photo_path'] ?>" title="" class="gallery-masonry-item-img-link img-zoom">
                         <div class="gallery-box">
-                            <div class="gallery-img"> <img src="img/slider/1.jpg" class="img-fluid mx-auto d-block" alt=""> </div>
+                            <div class="gallery-img"> <img src="./Admin/Home/<?= $row['photo_path'] ?>" class="img-fluid mx-auto d-block" alt="" style="width: 300px; height: 300px;"> </div>
                             <div class="gallery-masonry-item-img"></div>
                         </div>
                     </a>
                 </div>
-                <div class="col-md-4 gallery-masonry-wrapper single-item weight">
-                    <a href="img/slider/13.jpg" title="" class="gallery-masonry-item-img-link img-zoom">
-                        <div class="gallery-box">
-                            <div class="gallery-img"> <img src="img/slider/13.jpg" class="img-fluid mx-auto d-block" alt=""> </div>
-                            <div class="gallery-masonry-item-img"></div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 gallery-masonry-wrapper single-item cardio">
-                    <a href="img/slider/12.jpg" title="" class="gallery-masonry-item-img-link img-zoom">
-                        <div class="gallery-box">
-                            <div class="gallery-img"> <img src="img/slider/12.jpg" class="img-fluid mx-auto d-block" alt=""> </div>
-                            <div class="gallery-masonry-item-img"></div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 gallery-masonry-wrapper single-item crossfit">
-                    <a href="img/slider/11.jpg" title="" class="gallery-masonry-item-img-link img-zoom">
-                        <div class="gallery-box">
-                            <div class="gallery-img"> <img src="img/slider/11.jpg" class="img-fluid mx-auto d-block" alt=""> </div>
-                            <div class="gallery-masonry-item-img"></div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 gallery-masonry-wrapper single-item weight">
-                    <a href="img/slider/10.jpg" title="" class="gallery-masonry-item-img-link img-zoom">
-                        <div class="gallery-box">
-                            <div class="gallery-img"> <img src="img/slider/10.jpg" class="img-fluid mx-auto d-block" alt=""> </div>
-                            <div class="gallery-masonry-item-img"></div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 gallery-masonry-wrapper single-item cardio">
-                    <a href="img/slider/9.jpg" title="" class="gallery-masonry-item-img-link img-zoom">
-                        <div class="gallery-box">
-                            <div class="gallery-img"> <img src="img/slider/9.jpg" class="img-fluid mx-auto d-block" alt=""> </div>
-                            <div class="gallery-masonry-item-img"></div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 gallery-masonry-wrapper single-item crossfit">
-                    <a href="img/slider/7.jpg" title="" class="gallery-masonry-item-img-link img-zoom">
-                        <div class="gallery-box">
-                            <div class="gallery-img"> <img src="img/slider/7.jpg" class="img-fluid mx-auto d-block" alt=""> </div>
-                            <div class="gallery-masonry-item-img"></div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 gallery-masonry-wrapper single-item weight">
-                    <a href="img/slider/6.jpg" title="" class="gallery-masonry-item-img-link img-zoom">
-                        <div class="gallery-box">
-                            <div class="gallery-img"> <img src="img/slider/6.jpg" class="img-fluid mx-auto d-block" alt=""> </div>
-                            <div class="gallery-masonry-item-img"></div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 gallery-masonry-wrapper single-item crossfit">
-                    <a href="img/slider/5.jpg" title="" class="gallery-masonry-item-img-link img-zoom">
-                        <div class="gallery-box">
-                            <div class="gallery-img"> <img src="img/slider/5.jpg" class="img-fluid mx-auto d-block" alt=""> </div>
-                            <div class="gallery-masonry-item-img"></div>
-                        </div>
-                    </a>
-                </div>
+                <?php endwhile; ?>
+            <?php endif; ?>
+
+                
+                
+                
+               
             </div>
         </div>
     </section>

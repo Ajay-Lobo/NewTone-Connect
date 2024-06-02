@@ -12,64 +12,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $action = $_POST['action'] ?? '';
 
 
-    if ($action == 'upload') {
-        //   $photo_name = $_POST['image_name'] ?? '';
-        $event_category = $_POST['event_category'] ?? '';
-        $event_name = $_POST['event_name'] ?? '';
-        $event_date = $_POST['event_date'] ?? '';
-        $event_month = date('m', strtotime($event_date));
-        $event_year = date('Y', strtotime($event_date));
-        $event_day = date('d', strtotime($event_date));
-
-        if (isset($_FILES["photo"]) && $_FILES["photo"]["error"] == UPLOAD_ERR_OK) {
-            $file_tmp_path = $_FILES["photo"]["tmp_name"];
-            $file_name = basename($_FILES["photo"]["name"]);
-            $file_size = $_FILES["photo"]["size"];
-            $file_type = $_FILES["photo"]["type"];
-
-            $target_dir = "uploads/events/";
-            $target_file = $target_dir . $file_name;
-            $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
-            // Check if image file is an actual image or fake image
-            $check = getimagesize($file_tmp_path);
-            if ($check !== false) {
-                // Check if file already exists
-                if (!file_exists($target_file)) {
-                    // Check file size (limit to 5MB)
-                    if ($file_size <= 5000000) {
-                        // Allow certain file formats
-                        if (in_array($imageFileType, ["jpg", "jpeg", "png", "gif"])) {
-                            if (move_uploaded_file($file_tmp_path, $target_file)) {
-                                // Insert into database
-                                $stmt = $conn->prepare("INSERT INTO upcoming_events (event_name,event_title,event_poster,event_date,event_day,event_month,	event_year) VALUES (?, ?,?,?, ?, ?, ?)");
-                                $stmt->bind_param("sssssss", $event_category, $event_name, $target_file, $event_date, $event_day, $event_month, $event_year);
-
-                                if ($stmt->execute()) {
-                                    $_SESSION['success'] = "The file " . htmlspecialchars($file_name) . " has been uploaded.";
-                                } else {
-                                    $_SESSION['error'] = "Error uploading the file.";
-                                }
-                                $stmt->close();
-                            } else {
-                                $_SESSION['error'] = "Sorry, there was an error uploading your file.";
-                            }
-                        } else {
-                            $_SESSION['error'] = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-                        }
-                    } else {
-                        $_SESSION['error'] = "Sorry, your file is too large.";
-                    }
-                } else {
-                    $_SESSION['error'] = "Sorry, file already exists.";
-                }
-            } else {
-                $_SESSION['error'] = "File is not an image.";
-            }
-        } else {
-            $_SESSION['error'] = "No file was uploaded or there was an error with the upload.";
-        }
-    } elseif ($action == 'edit') {
+   
+     if ($action == 'edit') {
         $event_id = $_POST['id'] ?? '';
         $event_category = $_POST['event_category'] ?? '';
         $event_name = $_POST['event_name'] ?? '';
@@ -113,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-$result = $conn->query("SELECT * FROM upcoming_events where iscompleted=0");
+$result = $conn->query("SELECT * FROM upcoming_events where iscompleted=1 ORDER BY event_id DESC");
 ?>
 
 
@@ -216,8 +160,8 @@ $result = $conn->query("SELECT * FROM upcoming_events where iscompleted=0");
                 <div class="col-lg-12">
                     <div class="page-title-content">
                         <p>Events</p>
-                        <h2>Ucoming Event</h2>
-                        <button type="button" class="btn rounded-3 fs-6" style="background-color: #50ec96; padding: 10px 20px;" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-plus"></i></button>
+                        <h2>Completed Event</h2>
+                        <!-- <button type="button" class="btn rounded-3 fs-6" style="background-color: #50ec96; padding: 10px 20px;" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-plus"></i></button> -->
                     </div>
                 </div>
             </div>
@@ -249,7 +193,7 @@ $result = $conn->query("SELECT * FROM upcoming_events where iscompleted=0");
                         </div>
                         <div class="mb-3">
                             <label for="event_date">Event Date:</label>
-                            <input type="date" class="form-control" name="event_date" placeholder="Event Date" required min="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d', strtotime('+2 years')); ?>">
+                            <input type="date" class="form-control" name="event_date" placeholder="Event Date"  max="<?php echo date('Y-m-d');?>">
                         </div>
 
                         <input type="submit" class="btn btn-success" value="Upload">

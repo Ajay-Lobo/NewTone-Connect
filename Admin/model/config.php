@@ -17,5 +17,12 @@ if ($conn->connect_error) {
 if (!$conn->set_charset("utf8mb4")) {
     printf("Error loading character set utf8mb4: %s\n", $conn->error);
     exit();
+
+$update_query = "UPDATE events SET iscompleted = 1 WHERE event_date < CURDATE()";
+if ($conn->query($update_query) === TRUE) {
+    echo "iscomplete column updated successfully";
+} else {
+    echo "Error updating iscomplete column: " . $conn->error;
+}
 }
 ?>

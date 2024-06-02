@@ -1,3 +1,28 @@
+<?php
+include_once './model/config.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $action = $_POST['action'] ?? '';
+
+    if ($action == 'upload') {
+        $fname = $_POST['fname'] ?? '';
+        $email = $_POST['email'] ?? '';
+        $phone = $_POST['phone'] ?? '';
+        $subject = $_POST['subject'] ?? '';
+        $message = $_POST['message'] ?? '';
+
+        // Insert into database
+        $stmt = $conn->prepare("INSERT INTO upcoming_events (fname, email, phone, subjects, messages) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("sssss", $fname, $email, $phone, $subject, $message);
+
+        $stmt->execute();
+        $stmt->close();
+    }  
+}
+
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -117,35 +142,36 @@
                 <div class="col-md-5 offset-md-1 animate-box" data-animate-effect="fadeInUp">
                     <div class="form-box">
                         <h5>Get in touch</h5>
-                        <form method="post" class="contact__form" action="https://duruthemes.com/demo/html/nostop/dark-parallax-image/mail.php">
-                            <!-- Form message -->
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="alert alert-success contact__msg" style="display: none" role="alert"> Your message was sent successfully. </div>
-                                </div>
-                            </div>
-                            <!-- Form elements -->
-                            <div class="row">
-                                <div class="col-md-12 form-group">
-                                    <input name="name" type="text" placeholder="Your Name *" required>
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <input name="email" type="email" placeholder="Your Email *" required>
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <input name="phone" type="text" placeholder="Your Number *" required>
-                                </div>
-                                <div class="col-md-12 form-group">
-                                    <input name="subject" type="text" placeholder="Subject *" required>
-                                </div>
-                                <div class="col-md-12 form-group">
-                                    <textarea name="message" id="message" cols="30" rows="4" placeholder="Message *" required></textarea>
-                                </div>
-                                <div class="col-md-12 mt-15">
-                                    <input name="submit" type="submit" value="Send Message">
-                                </div>
-                            </div>
-                        </form>
+                        <form method="post" class="contact__form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+    <!-- Form message -->
+    <div class="row">
+        <!-- <div class="col-12">
+            <div class="alert alert-success contact__msg" style="display: none" role="alert"> Your message was sent successfully. </div>
+        </div> -->
+    </div>
+    <!-- Form elements -->
+    <div class="row">
+        <div class="col-md-12 form-group">
+            <input name="fname" type="text" placeholder="Your Name *" required>
+        </div>
+        <div class="col-md-6 form-group">
+            <input name="email" type="email" placeholder="Your Email *" required>
+        </div>
+        <div class="col-md-6 form-group">
+            <input name="phoneno" type="text" placeholder="Your Number *" required>
+        </div>
+        <div class="col-md-12 form-group">
+            <input name="subject" type="text" placeholder="Subject *" required>
+        </div>
+        <div class="col-md-12 form-group">
+            <textarea name="message" id="message" cols="30" rows="4" placeholder="Message *" required></textarea>
+        </div>
+        <div class="col-md-12 mt-15">
+            <input name="action" type="hidden" value="submit">
+            <input type="submit" value="Submit">
+        </div>
+    </div>
+</form>
                     </div>
                 </div>
             </div>

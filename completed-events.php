@@ -1,21 +1,21 @@
 <?php
-session_start();
-if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
-    header("location: ../index.php");
-    exit;
-}
+
+include './model/config.php';
+
+$result = $conn->query("SELECT * FROM upcoming_events where iscompleted=1");
+
 ?>
 <!DOCTYPE html>
 <html lang="zxx">
+
 
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <title>Fitness HQ</title>
-    <link rel="shortcut icon" href="https://res.cloudinary.com/dhkh3kguy/image/upload/v1716719838/favicon_mcxew6.ico" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald&amp;family=Barlow:wght@300;400;500;600;700&amp;display=swap">
+    <title>Ucoming Events</title>
+    <link rel="shortcut icon" href="https://res.cloudinary.com/dhkh3kguy/image/upload/v1716719838/favicon_mcxew6.ico" />    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald&amp;family=Barlow:wght@300;400;500;600;700&amp;display=swap">
     <link rel="stylesheet" href="css/plugins.css" />
     <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -50,47 +50,74 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             <!-- Menu -->
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"> <a class="nav-link active " href="#"> Home </a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="index.html" >Home </a>  </li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Events &nbsp;<i class="ti-angle-down"></i></a>
+                    <li class="nav-item dropdown"> <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Events &nbsp;<i class="ti-angle-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="upcoming-event.php" class="dropdown-item"><span>Ucoming Events</span></a></li>
-                            <li><a href="completed-event.php" class="dropdown-item"><span>Completed Events</span></a></li>
+                            <li><a href="blog.html" class="dropdown-item"><span>Ucoming Events</span></a></li>
+                            <li><a href="blog2.html" class="dropdown-item"><span>Completed Events</span></a></li>
                         </ul>
                     </li>
-                    <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Gallery &nbsp;<i class="ti-angle-down"></i></a>
+                    <li class="nav-item dropdown"> <a class="nav-link  dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Gallery &nbsp;<i class="ti-angle-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="gallery-image.php" class="dropdown-item"><span>Image Gallery</span></a></li>
+                            <li><a href="gallery-image.html" class="dropdown-item"><span>Image Gallery</span></a></li>
                             <li><a href="gallery-video.html" class="dropdown-item"><span>Video Gallery</span></a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="equipments.php">Equipments</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">Equipments</a></li>
 
-                    <li class="nav-item"><a class="nav-link" href="pricing.php">Pricing</a></li>
-
+                    <li class="nav-item"><a class="nav-link " href="pricing.html">Pricing</a></li>
+                   
+                    
+                   
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                            <?php echo $_SESSION['username']; ?> &nbsp;<i class="ti-angle-down"></i>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="gallery-image.html" class="dropdown-item"><span>Profile</span></a></li>
-                            <li><a href="../Logout/index.php" class="dropdown-item"><span>Logout</span></a></li>
-                        </ul>
-                    </li>
-
-
-
-                </ul>
-                </li>
                 </ul>
             </div>
         </div>
     </nav>
-    
-    <!-- Parallax Image -->
-    
+    <!-- Header Banner -->
+    <section class="banner-header section-padding bg-img" data-overlay-dark="5" data-background="img/slider/4.jpg">
+        <div class="v-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h6>Events</h6>
+                        <h1><span>Upcoming</span> Events</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog -->
+    <section class="blog section-padding">
+        <div class="container">
+            <div class="row">
+                <?php if ($result->num_rows > 0) : ?>
+                    <?php while ($row = $result->fetch_assoc()) : ?>
+                        <div class="col-md-6 mb-60">
+                            <div class="item">
+                                <div class="position-re o-hidden">
+                                    <img src="./Admin/Home/<?= $row['event_poster'] ?>" alt="" style="width: 500px; height: 400px;">
+                                    <div class="date">
+                                        <a href="post.html"> <span><?= $row['event_month'] ?></span> <i><?= $row['event_day'] ?></i> </a>
+                                    </div>
+                                </div>
+                                <div class="con">
+                                    <span class="category">
+                                        <a href="#"><?= $row['event_name'] ?></a>
+                                    </span>
+                                    <h5><a href="#"><?= $row['event_title'] ?></a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endwhile; ?>
+                <?php endif; ?>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testiominals -->
+   
         <div class="footer-bottom">
             <div class="container">
                 <div class="row">
@@ -123,6 +150,6 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     <script src="js/custom.js"></script>
 </body>
 
-<!-- Mirrored from duruthemes.com/demo/html/nostop/dark-parallax-image/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 26 May 2024 07:49:34 GMT -->
+
 
 </html>

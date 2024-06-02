@@ -1,3 +1,11 @@
+<?php
+
+include './model/config.php';
+
+$result = $conn->query("SELECT * FROM upcoming_events where iscompleted=0");
+
+?>
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -46,23 +54,23 @@
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Events &nbsp;<i class="ti-angle-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="blog.html" class="dropdown-item"><span>Ucoming Events</span></a></li>
-                            <li><a href="blog.html" class="dropdown-item"><span>Completed Events</span></a></li>
+                            <li><a href="upcoming-event.php" class="dropdown-item"><span>Ucoming Events</span></a></li>
+                            <li><a href="completed-events.php" class="dropdown-item"><span>Completed Events</span></a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Gallery &nbsp;<i class="ti-angle-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="gallery-image.html" class="dropdown-item"><span>Image Gallery</span></a></li>
-                            <li><a href="gallery-video.html" class="dropdown-item"><span>Video Gallery</span></a></li>
+                            <li><a href="gallery-image.php" class="dropdown-item"><span>Image Gallery</span></a></li>
+                            <!-- <li><a href="gallery-video.html" class="dropdown-item"><span>Video Gallery</span></a></li> -->
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">Equipments</a></li>
+                    <li class="nav-item"><a class="nav-link" href="equipments.php">Equipments</a></li>
 
-                    <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pricing.php">Pricing</a></li>
                    
                     
                    
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -76,7 +84,7 @@
                         <h6>Welcome to Fitness HQ</h6>
                         <h1>Be A Happier, Healthier,<br><span>Stronger You</span></h1>
                         <p>Achieve your health & fitness goals at any stage.</p>
-                        <a href="pricing.html" class="btn-1 button-1">JOIN NOW</a>
+                        <a href="pricing.php" class="btn-1 button-1">JOIN NOW</a>
                     </div>
                 </div>
             </div>
@@ -152,34 +160,34 @@
                         <div class="item">
                             <div class="position-re o-hidden"> <img src="img/classes/1.jpg" alt=""> </div>
                             <div class="con">
-                                <h5><a href="classes-single.html">Personal Training</a></h5>
+                                <h5><a href="pricing.php">Personal Training</a></h5>
                                 <div class="line"></div>
                                 <div class="icon">
-                                    <a href="classes-single.html"><i class="ti-arrow-right"></i></a>
+                                    <a href="pricing.php"><i class="ti-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>
                         <div class="item">
                             <div class="position-re o-hidden"> <img src="img/classes/2.jpg" alt=""> </div>
                             <div class="con">
-                                <h5><a href="classes-single.html">Fitness Class</a></h5>
+                                <h5><a href="equipments.php">Fitness Class</a></h5>
                                 <div class="line"></div>
                                 <div class="icon">
-                                    <a href="classes-single.html"><i class="ti-arrow-right"></i></a>
+                                    <a href="equipments.php"><i class="ti-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>
                         <div class="item">
                             <div class="position-re o-hidden"> <img src="img/classes/3.jpg" alt=""> </div>
                             <div class="con">
-                                <h5><a href="classes-single.html">Nutrition Plan</a></h5>
+                                <h5><a href="equipments.php">Steam Class</a></h5>
                                 <div class="line"></div>
                                 <div class="icon">
-                                    <a href="classes-single.html"><i class="ti-arrow-right"></i></a>
+                                    <a href="equipments.php"><i class="ti-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>
-                        <div class="item">
+                        <!-- <div class="item">
                             <div class="position-re o-hidden"> <img src="img/classes/4.jpg" alt=""> </div>
                             <div class="con">
                                 <h5><a href="classes-single.html">Online Training</a></h5>
@@ -198,8 +206,8 @@
                                     <a href="classes-single.html"><i class="ti-arrow-right"></i></a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="item">
+                        </div> -->
+                        <!-- <div class="item">
                             <div class="position-re o-hidden"> <img src="img/classes/9.jpg" alt=""> </div>
                             <div class="con">
                                 <h5><a href="classes-single.html">Crossfit Training</a></h5>
@@ -208,7 +216,7 @@
                                     <a href="classes-single.html"><i class="ti-arrow-right"></i></a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -226,19 +234,26 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="owl-carousel owl-theme">
+
+                    <?php if ($result->num_rows > 0) : ?>
+                    <?php while ($row = $result->fetch_assoc()) : ?>
                         <div class="item">
-                            <div class="position-re o-hidden"> <img src="img/slider/13.jpg" alt="">
+                            <div class="position-re o-hidden"> <img src="./Admin/Home/<?= $row['event_poster'] ?>" alt="" style="width: 500px; height: 400px;">
                                 <div class="date">
-                                    <a href="post.html"> <span>Jun</span> <i>05</i> </a>
+                                    <a href="post.html"> <span><?= $row['event_month'] ?></span> <i><?= $row['event_day'] ?></i> </a>
                                 </div>
                             </div>
                             <div class="con"> <span class="category">
-                                    <a href="blog.html">Weight Lifting</a>
+                                    <a href="upcoming-event.php"> <?= $row['event_name'] ?></a>
                                 </span>
-                                <h5><a href="post.html">What Is A Barbell Complex?</a></h5>
+                                <h5><a href="upcoming-event.php"><?= $row['event_title'] ?></a></h5>
                             </div>
                         </div>
-                        <div class="item">
+
+                        <?php endwhile; ?>
+                <?php endif; ?>
+
+                        <!-- <div class="item">
                             <div class="position-re o-hidden"> <img src="img/slider/9.jpg" alt="">
                                 <div class="date">
                                     <a href="post.html"> <span>Jun</span> <i>10</i> </a>
@@ -297,7 +312,7 @@
                                 </span>
                                 <h5><a href="post.html">Creative Gym Equipment Swaps</a></h5>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -313,7 +328,7 @@
                         <div class="ready v-middle">
                             <h4>Wanna Join US</h4>
                             <p>Make an appointment today for your free and non-binding trial session with or without one of our personal trainers.</p> 
-                            <a href="contact.html" class="btn-1 button-1">Contact Us</a>
+                            <a href="contact.php" class="btn-1 button-1">Contact Us</a>
                         </div>
                     </div>
                     <!-- Testiominals -->
@@ -387,7 +402,7 @@
                 <a href="#0"> <img src="img/slider/5.jpg" alt=""> </a> <i class="ti-instagram"></i>
             </div>
             <div class="follow">
-                <a href="gallery-image.html" class="text-bg"> <span><i class="ti-gallery"></i>&nbsp; Gallery</span></a>
+                <a href="gallery-image.php" class="text-bg"> <span><i class="ti-gallery"></i>&nbsp; Gallery</span></a>
             </div>
         </div>
     </div>

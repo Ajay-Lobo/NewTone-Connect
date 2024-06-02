@@ -1,3 +1,11 @@
+<?php
+
+include './model/config.php';
+
+$sql = "SELECT * FROM pricing";
+$result = $conn->query($sql);
+?>
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -84,57 +92,40 @@
             <section class="pricing section-padding">
                 <div class="container">
                     <div class="row">
+                    <?php if ($result->num_rows > 0): ?>
+                        <?php while($row = $result->fetch_assoc()): ?>
                         <div class="col-md-4">
                             <div class="item">
                                 <div class="cont">
-                                    <img src="img/icons/silver-icon.svg" alt="">
-                                    <h5>Silver Membership</h5>
+                                    <!-- <img src="img/icons/silver-icon.svg" alt=""> -->
+                                    <h5><?= $row['membership_name'] ?></h5>
                                     <h1 class="bold price-price">
                                         <sup><span>&#8377;</span>.</sup>
-                                        <span>500</span>
+                                        <span><?= $row['membership_price'] ?></span>
                                     </h1>
-                                    <div class="price-features">
-                                        <p>Per Month</p>
-                                    </div>
-                                    <a href="contact.html" class="btn-5 button-5">Get Started</a>
+                                    <?php if ($row['extra_duration'] > 0): ?>
+                                        <div class="price-features">
+                                            <p><?= $row['duration'] ?> Month + <?= $row['extra_duration'] ?> Month free</p>
+                                        </div>
+                                    <?php else: ?>
+                                        <div class="price-features">
+                                            <p><?= $row['duration'] ?> Month</p>
+                                        </div>
+                                    <?php endif; ?>
+                                    <a href="contact.php" class="btn-5 button-5">Get Started</a>
+
                                 </div>
+
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="item">
-                                <div class="cont center">
-                                    <img src="img/icons/gold-bars-icon.svg" alt="">
-                                    <h5>Gold Membership</h5>
-                                    <h1 class="bold price-price">
-                                        <sup><span>&#8377;</span>.</sup>
-                                        <span>1000</span>
-                                    </h1>
-                                    <div class="price-features">
-                                        <p>Per Month</p>
-                                    </div>
-                                    <a href="contact.html" class="btn-5 button-5">Get Started</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="item">
-                                <div class="cont">
-                                   <img src="img/icons/three-stars-icon.svg" alt="">
-                                    <h5>Platinum Membership</h5>
-                                    <h1 class="bold price-price">
-                                        <sup><span>&#8377;</span>.</sup>
-                                        <span>2500</span>
-                                    </h1>
-                                    <div class="price-features">
-                                        <p>Per Month</p>
-                                    </div>
-                                    <a href="contact.html" class="btn-5 button-5">Get Started</a>
-                                </div>
-                            </div>
-                        </div>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
                     </div>
                 </div>
             </section>
+
+
+
     <!-- Testiominals -->
     <section class="testimonials">
         <div class="background bg-img bg-fixed section-padding pb-0" data-background="img/slider/4.jpg" data-overlay-dark="4">

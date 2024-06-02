@@ -1,3 +1,10 @@
+<?php
+
+include './model/config.php';
+
+$result = $conn->query("SELECT * FROM upcoming_events where iscompleted=0");
+
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -85,102 +92,26 @@
     <section class="blog section-padding">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 mb-60">
-                    <div class="item">
-                        <div class="position-re o-hidden"> <img src="img/slider/13.jpg" alt="">
-                            <div class="date">
-                                <a href="post.html"> <span>Apr</span> <i>27</i> </a>
+                <?php if ($result->num_rows > 0) : ?>
+                    <?php while ($row = $result->fetch_assoc()) : ?>
+                        <div class="col-md-6 mb-60">
+                            <div class="item">
+                                <div class="position-re o-hidden">
+                                    <img src="./Admin/Home/<?= $row['event_poster'] ?>" alt="" style="width: 500px; height: 400px;">
+                                    <div class="date">
+                                        <a href="#"> <span><?= $row['event_month'] ?></span> <i><?= $row['event_day'] ?></i> </a>
+                                    </div>
+                                </div>
+                                <div class="con">
+                                    <span class="category">
+                                        <a href="#"><?= $row['event_name'] ?></a>
+                                    </span>
+                                    <h5><a href="#"><?= $row['event_title'] ?></a></h5>
+                                </div>
                             </div>
                         </div>
-                        <div class="con"> <span class="category">
-                                <a href="blog.html">Weight Lifting</a>
-                            </span>
-                            <h5><a href="post.html">What Is A Barbell Complex?</a></h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-60">
-                    <div class="item">
-                        <div class="position-re o-hidden"> <img src="img/slider/9.jpg" alt="">
-                            <div class="date">
-                                <a href="post.html"> <span>Apr</span> <i>25</i> </a>
-                            </div>
-                        </div>
-                        <div class="con"> <span class="category">
-                                <a href="blog.html">Fitness</a>
-                            </span>
-                            <h5><a href="post.html">Upper Body Plyometric Exercises</a></h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-60">
-                    <div class="item">
-                        <div class="position-re o-hidden"> <img src="img/slider/3.jpg" alt="">
-                            <div class="date">
-                                <a href="post.html"> <span>Apr</span> <i>24</i> </a>
-                            </div>
-                        </div>
-                        <div class="con"> <span class="category">
-                                <a href="blog.html">Training</a>
-                            </span>
-                            <h5><a href="post.html">What Is Tempo Training?</a></h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-60">
-                    <div class="item">
-                        <div class="position-re o-hidden"> <img src="img/slider/14.jpg" alt="">
-                            <div class="date">
-                                <a href="post.html"> <span>Apr</span> <i>23</i> </a>
-                            </div>
-                        </div>
-                        <div class="con"> <span class="category">
-                                <a href="blog.html">Fitness</a>
-                            </span>
-                            <h5><a href="post.html">Dumbbell Chest Press Variations</a></h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-60">
-                    <div class="item">
-                        <div class="position-re o-hidden"> <img src="img/slider/2.jpg" alt="">
-                            <div class="date">
-                                <a href="post.html"> <span>Apr</span> <i>22</i> </a>
-                            </div>
-                        </div>
-                        <div class="con"> <span class="category">
-                                <a href="blog.html">Trainers</a>
-                            </span>
-                            <h5><a href="post.html">The Best Online Tools For Trainers</a></h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-60">
-                    <div class="item">
-                        <div class="position-re o-hidden"> <img src="img/slider/4.jpg" alt="">
-                            <div class="date">
-                                <a href="post.html"> <span>Apr</span> <i>21</i> </a>
-                            </div>
-                        </div>
-                        <div class="con"> <span class="category">
-                                <a href="blog.html">Fitness</a>
-                            </span>
-                            <h5><a href="post.html">Creative Gym Equipment Swaps</a></h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Pagination -->
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <ul class="pagination-wrap align-center">
-                        <li><a href="#"><i class="ti-angle-left"></i></a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#" class="active">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#"><i class="ti-angle-right"></i></a></li>
-                    </ul>
-                </div>
+                    <?php endwhile; ?>
+                <?php endif; ?>
             </div>
         </div>
     </section>
