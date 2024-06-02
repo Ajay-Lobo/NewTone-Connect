@@ -60,7 +60,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                     </li>
                     <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Gallery &nbsp;<i class="ti-angle-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="gallery-image.html" class="dropdown-item"><span>Image Gallery</span></a></li>
+                            <li><a href="gallery-image.php" class="dropdown-item"><span>Image Gallery</span></a></li>
                             <li><a href="gallery-video.html" class="dropdown-item"><span>Video Gallery</span></a></li>
                         </ul>
                     </li>
