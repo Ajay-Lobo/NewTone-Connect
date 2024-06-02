@@ -54,7 +54,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Events &nbsp;<i class="ti-angle-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="blog.html" class="dropdown-item"><span>Ucoming Events</span></a></li>
+                            <li><a href="upcoming-event.php" class="dropdown-item"><span>Ucoming Events</span></a></li>
                             <li><a href="blog.html" class="dropdown-item"><span>Completed Events</span></a></li>
                         </ul>
                     </li>
